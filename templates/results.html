@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Voting Results</h2>
+
+        {% for candidate, count in votes.items() %}
+            <div class="result">
+                <strong>{{ candidate }}</strong> : {{ count }} votes
+            </div>
+        {% endfor %}
+
+        <h3>Blockchain Records</h3>
+
+        {% for block in chain %}
+            <div class="block">
+                <p><b>Block:</b> {{ block.index }}</p>
+                <p><b>Vote:</b> {{ block.vote }}</p>
+                <p><b>Previous Hash:</b> {{ block.previous_hash }}</p>
+            </div>
+        {% endfor %}
+
+        <a href="/" class="btn">Home</a>
+    </div>
+</body>
+</html>
